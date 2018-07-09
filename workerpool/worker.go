@@ -66,7 +66,7 @@ func (w * Worker) Stop() {
     <-w.stopChan
 }
 
-func (w * Worker) Stopped (bool) {
+func (w * Worker) Stopped() (bool) {
     select {
     case <- w.stopChan:
         return true

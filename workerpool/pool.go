@@ -17,7 +17,7 @@
 // 
 ///////////////////////////////////////////////////////////////////////////////
 
-package main
+package workerpool
 
 
 type WorkerPool struct {
@@ -30,7 +30,7 @@ type WorkerPool struct {
 
 
 func NewWorkerPool(workers, queueLength int) (*WorkerPool) {
-    p := & {
+    p := &WorkerPool{
         maxWorkers: workers,
         jobQueue:   make(chan Job, queueLength),
         pool:       make(chan chan Job, workers),
@@ -40,7 +40,7 @@ func NewWorkerPool(workers, queueLength int) (*WorkerPool) {
 }
 
 func (p * WorkerPool) Stop() {
-    if p.Stopped {
+    if p.Stopped() {
         return
     }
     for _, w := range p.workers {
