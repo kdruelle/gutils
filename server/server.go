@@ -24,7 +24,7 @@ import(
     "net"
     "crypto/tls"
     "sync"
-    "github.com/kdruelle/golib/workerpool"
+    "github.com/kdruelle/gutils/workerpool"
 )
 
 
